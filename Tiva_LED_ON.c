@@ -4,7 +4,7 @@ void SystemInit();
 void init()
 {
 		// PORT F initial
-	SYSCTL_RCGCGPIO_R |= 0x20; // port B select
+		SYSCTL_RCGCGPIO_R |= 0x20; // port B select
 	//delay = 1;
 	while((SYSCTL_PRGPIO_R & 0x20) == 0){}; //delay until the portD is granted
 	GPIO_PORTF_AFSEL_R = 0; // alternate function select to GPIO
@@ -18,7 +18,14 @@ void init()
 }
 int main()
 {
-
+	// call the initialization function
+	init();
+	// led-lightt in PORT F 
+	while(1)
+	{
+		GPIO_PORTF_DATA_R = 0x02;
+	}
+	
 
 
 
