@@ -1,6 +1,6 @@
 #include "stdint.h"
 #include "T:/asu/3rd CSE/Second-term/Microprocessor/Project/GPS-microprocessor/tm4c123gh6pm.h"
-void SystemInit();
+void SystemInit(){};
 void init()
 {
 		// PORT F initial
