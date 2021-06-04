@@ -1,5 +1,5 @@
 #include "stdint.h"
-#include "T:/asu/3rd CSE/Second-term/Microprocessor/Project/GPS-microprocessor/tm4c123gh6pm.h"
+#include "D:/keil/New folder/clone m/tm4c123gh6pm.h"
 void SystemInit(){};
 void init()
 {
@@ -16,6 +16,7 @@ void init()
 	GPIO_PORTF_LOCK_R = 0x4C4F434B; //  lock port D
 	GPIO_PORTF_CR_R |= 0x1F; // enable commiit to the 8 bins
 }
+uint32_t time = 500000;
 int main()
 {
 	// call the initialization function
@@ -23,8 +24,13 @@ int main()
 	// led-lightt in PORT F 
 	while(1)
 	{
-		GPIO_PORTF_DATA_R = 0x02;
-	}
+		GPIO_PORTF_DATA_R = 0x04;
+		
+		while (time){  
+		time -- ;
+		}
+			GPIO_PORTF_DATA_R = 0x02;
+	
 	
 
 
