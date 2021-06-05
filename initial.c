@@ -1,5 +1,5 @@
 #include "stdint.h"
-#include "T:/asu/3rd CSE/Second-term/Microprocessor/Project/GPS-microprocessor/tm4c123gh6pm.h"
+#include "tm4c123gh6pm.h"
 void init()
 {
 	volatile unsigned long delay;
@@ -70,3 +70,24 @@ void init()
 	GPIO_PORTF_LOCK_R = 0x4C4F434B; //  lock portf
 	GPIO_PORTF_CR_R |= 0x1F; // enable commiit to the 8 bins
 }
+
+
+
+/// UART0 INITILIZATION 
+void UART0_Init(){
+ 
+	SYSCTL_RCGCUART_R |= 0x0001; // activate UART0
+  SYSCTL_RCGCGPIO_R |= 0x0001; // activate port A
+  UART0_CTL_R &= ~0x0001; // disable UART
+  UART0_IBRD_R = 104; // IBRD=int(80000000/(16*9600)) = int(520.8333)
+  UART0_FBRD_R = 11; // FBRD = int(0.8333 * 64 + 0.5)
+  UART0_LCRH_R = 0x0070; // 8-bit word length, enable FIFO 001110000
+  UART0_CTL_R = 0x0301; // enable RXE, TXE and UART 001100000001
+	GPIO_PORTA_AFSEL_R |= 0x03; // enable alt function PA0 ,PA1
+  GPIO_PORTA_PCTL_R = (GPIO_PORTA_PCTL_R&0xFFFFFF00)+0x00000011; 
+  GPIO_PORTA_DEN_R |= 0x03; // enable digital I/O on PA0, PA1
+  GPIO_PORTA_AMSEL_R &= ~0x03; // disable analog function on PA0, PA1
+
+
+}
+
