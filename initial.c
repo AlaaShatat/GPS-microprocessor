@@ -74,7 +74,7 @@ void init()
 
 
 /// UART0 INITILIZATION 
-void UART0_Init(){
+void UART_Init(void){
  
 	SYSCTL_RCGCUART_R |= 0x0001; // activate UART0
   SYSCTL_RCGCGPIO_R |= 0x0001; // activate port A
@@ -90,4 +90,31 @@ void UART0_Init(){
 
 
 }
+
+
+
+/// UART1 INITILIZATION 
+void UART1_Init(void){
+ 
+	SYSCTL_RCGCUART_R |= 0x00000002; // activate UART1
+  SYSCTL_RCGCGPIO_R |= 0x00000002; // activate port B
+  UART1_CTL_R &= ~0x00000001; // disable UART
+  UART1_IBRD_R = 104; // IBRD=int(80000000/(16*9600)) = int(520.8333)
+  UART1_FBRD_R = 11; // FBRD = int(0.8333 * 64 + 0.5)
+  UART1_LCRH_R = 0x0070; // 8-bit word length, enable FIFO 001110000
+  UART1_CTL_R = 0x0301; // enable RXE, TXE and UART 001100000001
+	GPIO_PORTB_AFSEL_R |= 0x03; // enable alt function PB0 ,PB1
+GPIO_PORTB_PCTL_R = (GPIO_PORTB_PCTL_R&0xFFFFFF00)+0x00000011; 
+GPIO_PORTB_DEN_R |= 0x03; // enable digital I/O on PA0, PA1
+GPIO_PORTB_AMSEL_R &= ~0x03; // disable analog function on PA0, PA1
+
+
+}
+
+
+
+
+
+
+
 
