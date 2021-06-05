@@ -5,8 +5,8 @@ void ledlight(double distance)
 {
 	
 	// calcDistance();
-	if (distance >=100)
+	if (distance >=99)
 	{
-		GPIO_PORTF_DATA_R = 0x02; // turn led on
+		GPIO_PORTF_DATA_R = 0x04; // turn led on
 	} 
 }
