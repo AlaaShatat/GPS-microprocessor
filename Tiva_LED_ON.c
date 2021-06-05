@@ -1,5 +1,6 @@
 #include "stdint.h"
-#include "D:/keil/New folder/clone m/tm4c123gh6pm.h"
+//#include "D:/keil/New folder/clone m/tm4c123gh6pm.h" //aya path
+#include "T:/asu\3rd CSE/Second-term/Microprocessor/Project\GPS-microprocessor/tm4c123gh6pm.h"
 void SystemInit(){};
 void init()
 {
