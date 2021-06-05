@@ -30,6 +30,18 @@ void init()
 	//GPIO_PORTB_LOCK_R = 0x4C4F434B; //  lock port B
 	GPIO_PORTB_CR_R |= 0xFF; // enable commiit to the 8 bins
 		
+		// initialize port D
+	
+	SYSCTL_RCGCGPIO_R |= 0x08; // port D select
+	delay = 1;
+	//while((SYSCTL_PRGPIO_R & 0x08) == 0){}; //delay until the portD is granted
+	GPIO_PORTD_AFSEL_R = 0x00; // alternate function select to GPIO
+	GPIO_PORTD_PCTL_R = 0;
+	GPIO_PORTD_AMSEL_R = 0; // no analog
+	GPIO_PORTD_DIR_R  = 0xFF; // all pins are output
+	GPIO_PORTD_DEN_R = 0xFF; // all pins are digital output 
+	GPIO_PORTD_PUR_R = 0; // no pull up resistors are needed
+		
 			// initialize port E
 	
 	SYSCTL_RCGCGPIO_R |= 0x10; // port E select
