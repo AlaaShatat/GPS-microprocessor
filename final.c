@@ -13,6 +13,25 @@ void SystemInit(){
 //CPAC |=0x00F00000;
 
 };
+ uint32_t test = 0x0000  ;
+ uint32_t hundreds = 0x0000;
+uint32_t tens = 0x0000;
+uint32_t units = 0x0000;	
+uint32_t number= 0x0000;
+float total_distance = 0x0000 ;
+uint32_t i = 0x0000  ;
+uint32_t j = 0x0000  ;
+float earthRadiusKm;
+float dLat;
+float dLon;
+float a;
+float c;
+float lat1;
+float lat2;
+float lon1;
+float lon2;
+uint8_t in ; 
+uint8_t out ; 
 int main()
 {
 	init();
