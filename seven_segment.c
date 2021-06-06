@@ -1,14 +1,6 @@
 #include "stdint.h"
 #include "math.h"
-void SystemInit(){}
-  uint32_t test = 0x0000  ;
-  uint32_t hundreds = 0x0000;
-	uint32_t tens = 0x0000;
-	uint32_t units = 0x0000;	
-	uint32_t number= 0x0000;
-  double total_distance = 0x0000 ;
-	
-	
+
 void segment_output(double total_distance)
 {
 	number = ceil(total_distance);
