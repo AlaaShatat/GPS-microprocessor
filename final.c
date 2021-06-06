@@ -17,4 +17,15 @@ int main()
 {
 	init();
 	
+total_distance=0;
+while(1)
+{
+while(total_distance<=799)
+{
+total_distance+=distanceInMeters(lat1,lon1,lat2,lon2);
+ledlight(total _distance);
+segment_output(total_distance);
+Delay(5000);
+}
+	
 }
