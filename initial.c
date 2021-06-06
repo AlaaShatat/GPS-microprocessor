@@ -28,7 +28,7 @@ void init()
 	GPIO_PORTB_DEN_R = 0xFF; // all pins are digital output 
 	GPIO_PORTB_PUR_R = 0; // no pull up resistors are needed
 	//GPIO_PORTB_LOCK_R = 0x4C4F434B; //  lock port B
-	GPIO_PORTB_CR_R |= 0xFF; // enable commiit to the 8 bins
+	//GPIO_PORTB_CR_R |= 0xFF; // enable commiit to the 8 bins
 		
 		// initialize port D
 	
@@ -54,7 +54,7 @@ void init()
 	GPIO_PORTE_DEN_R = 0xFF; // all pins are digital output 
 	GPIO_PORTE_PUR_R = 0; // no pull up resistors are needed
 	//GPIO_PORTE_LOCK_R = 0x4C4F434B; //  lock port E
-	GPIO_PORTE_CR_R |= 0xFF; // enable commiit to the 8 bins
+	//GPIO_PORTE_CR_R |= 0xFF; // enable commiit to the 8 bins
 			
 		
 		// PORT F initial
