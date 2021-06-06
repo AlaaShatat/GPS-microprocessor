@@ -23,31 +23,8 @@ void segment_output(long total_distance)
 	test=tens << 1;
 	GPIO_PORTE_DATA_R |= test;//tens E1->EE4
 	GPIO_PORTD_DATA_R |=  units;//units  D0->D3
-	//a2a3a4a5a6a7
-	//e4e5e3e2e1
-  //GPIO_PORTE_DATA_R =  test;
-//	GPIO_PORTF_DATA_R = GPIO_PORTD_DATA_R;
-	//
-	
-	//''test = tens ; 
-	//''test = test << 4 ;
-	//''test = test | units ;
-	
-	}
-	
-  //''GPIO_PORTD_DATA_R = test ; 
-  //''GPIO_PORTE_DATA_R = hundreds;
-	
-}
 
-int main ()
-{
-	while(1)
-	{
-	init();
-	total_distance = 128;
-  segment_output(total_distance);
-	
 	}
+	
 }
 
