@@ -1,7 +1,7 @@
 #include "stdint.h"
 #include "math.h"
 
-void segment_output(long total_distance)
+void segment_output(float total_distance)
 {
 	number = ceil(total_distance);
 	if(number!=0)
