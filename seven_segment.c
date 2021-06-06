@@ -1,7 +1,6 @@
 #include "stdint.h"
 #include "math.h"
-#include "tm4c123gh6pm.h"
-#include "initial.h"
+
 void SystemInit(){}
   int test = 0x0000  ;
   int hundreds = 0x00;
