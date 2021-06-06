@@ -1,7 +1,5 @@
 #include "stdint.h"
 #include "math.h"
-#include "tm4c123gh6pm.h"
-#include "initial.h"
 void SystemInit(){}
   uint32_t test = 0x0000  ;
   uint32_t hundreds = 0x0000;
