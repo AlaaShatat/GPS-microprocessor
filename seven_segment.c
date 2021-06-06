@@ -1,7 +1,6 @@
 #include "stdint.h"
 #include "math.h"
 
-void SystemInit(){}
   int test = 0x0000  ;
   int hundreds = 0x00;
 	int tens = 0x00;
