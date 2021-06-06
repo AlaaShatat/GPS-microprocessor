@@ -1,11 +1,10 @@
 #include "stdint.h"
 #include "math.h"
 #include "tm4c123gh6pm.h" // make sure to change file path
+#include "initial.c"
 #include "delay.c"
 #include "seven_segment.c"
-#include "initial.c"
 #include "TurnOnAfterDistance.c"
-#include ""
 //#define CPAC (*((volatile uint32_t*)0xE000ED88))
 void SystemInit(){
    NVIC_CPAC_R |=0x00F00000;
