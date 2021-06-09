@@ -149,7 +149,10 @@ void UART0_Write(uint8_t data){
 	while((UART0_FR_R&UART_FR_TXFF) != 0);
 	UART0_DR_R = data;
 }
-
+// check UART1_Available
+uint8_t UART1_Available(void){
+	return ((UART1_FR_R&UART_FR_RXFE) == UART_FR_RXFE) ? 0 : 1;
+}
 
 
 
