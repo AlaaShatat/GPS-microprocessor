@@ -160,6 +160,11 @@ uint8_t UART1_Read(void){
 	return (uint8_t)(UART1_DR_R&0xFF);
 }
 
+//UART1_Write
+void UART1_Write(uint8_t data){
+	while((UART1_FR_R&UART_FR_TXFF) != 0);
+	UART1_DR_R = data;
+}
 
 
 
