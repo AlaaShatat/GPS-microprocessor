@@ -1,5 +1,17 @@
 #include "stdint.h"
 #include "tm4c123gh6pm.h"
+
+	
+void systick_int(){
+
+NVIC_ST_CTRL_R =0 ;    
+NVIC_ST_RELOAD_R =1600-1; 
+NVIC_ST_CURRENT_R =0;
+NVIC_ST_CTRL_R =5 ;
+}
+
+
+
 void init()
 {
 	volatile unsigned long delay;
