@@ -28,6 +28,8 @@ uint8_t UART0_Available(void){
 	return ((UART0_FR_R&UART_FR_RXFE) == UART_FR_RXFE) ? 0 : 1;
 }
 
+
+
 uint8_t UART0_Read(void){
 	while(UART0_Available() != 1);
 	return (uint8_t)(UART0_DR_R&0xFF);
@@ -37,4 +39,20 @@ uint8_t UART0_Read(void){
 void UART0_Write(uint8_t data){
 	while((UART0_FR_R&UART_FR_TXFF) != 0);
 	UART0_DR_R = data;
+}
+	uint8_t in ; 
+uint8_t out ; 
+
+int main (){
+UART0_Init(); 
+while (1)
+{
+in =  UART0_Read();
+out = in ; 
+	
+		UART0_Write(out);
+		
+
+}
+
 }
