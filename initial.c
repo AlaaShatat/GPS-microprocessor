@@ -154,6 +154,11 @@ uint8_t UART1_Available(void){
 	return ((UART1_FR_R&UART_FR_RXFE) == UART_FR_RXFE) ? 0 : 1;
 }
 
+// check UART1_Read
+uint8_t UART1_Read(void){
+	while(UART1_Available() != 1);
+	return (uint8_t)(UART1_DR_R&0xFF);
+}
 
 
 
