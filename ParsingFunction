@@ -1,0 +1,98 @@
+void readGPSModule() {
+    char c0,latitudeResult[10],longitudeResult[10], GPSValues[100],parseValue[12][20],*token;
+    float seconds=0.0,result=0.0,minutes=0.0;
+    const char comma[2] = ",";
+    int degrees;
+    char c1,c2,c3,c4,c5,c6,c7;
+    
+      c0=UART1_Read();
+	    UART1_Write(c0);
+    if(c0=='$'){
+		
+			  c1= UART1_Read();
+			    UART1_Write(c1);
+             if(c1=='G'){
+           	
+               c2=UART1_Read();
+							  UART1_Write(c2);
+                 if(c2=='P'){
+               	
+                   c3=UART1_Read();
+						        UART1_Write(c3);
+                    if(c3=='G'){
+                    	
+                       c4=UART1_Read();
+											  UART1_Write(c4);
+                         if(c4=='L'){
+                          
+                           c5=UART1_Read();
+												    UART1_Write(c5);
+                            if(c5=='L'){
+                              
+                               c6=UART1_Read();
+															  UART1_Write(c6);
+                                if(c6==','){
+                                
+                                   c7=UART1_Read();
+																    UART1_Write(c7);
+                                  
+                                  while(c7!='*'){
+                                    GPSValues[index1]=c7;
+																			
+                                     c7=UART1_Read();
+																	
+                                   
+                                    index1++;}
+                                   
+                                 index1=0;
+                                 token = strtok(GPSValues, comma);
+                                 while( token != NULL ) {
+                                strcpy(parseValue[index1], token);
+                                  token = strtok(NULL, comma);
+                                  index1++;}
+                                  
+                                   if(strcmp(parseValue[5],"A")==0){
+                                    lat=atof(parseValue[0]);
+                                    lon=atof(parseValue[2]);
+                                           
+                                    degrees=lat/100;
+                                    minutes=lat-(double)(degrees*100);
+                                    seconds=minutes/60.00;
+                                    result=degrees+seconds;
+                                    sprintf(latitudeResult,"%f", result);
+                                    
+                                    
+                                    degrees=lon/100;
+                                    minutes=lon-(double)(degrees*100);
+                                    seconds=minutes/60.00;
+                                    result=degrees+seconds;
+                                    sprintf(longitudeResult, "%f", result);
+                                    
+																					 
+																		lat=atof(latitudeResult);
+																		lon=atof(longitudeResult);
+																		//One_Second_Delay(1);
+																	
+                                   info[i][0]=lat;
+																	 info[i][1]=lon;
+                                
+                                    if(total_distance>=100)
+																		{
+																			GPIO_PORTF_DIR_R|=0x04;
+																		}
+																		segment_output(total_distance);							
+															      One_Second_Delay(1);
+       															
+																			UART0_Write(lat);
+                                     Update_distance(lat,lon);
+                                  										 
+                                   
+                                   }
+                                   else
+                                   {
+                                        
+                                   }
+                                   
+                                }}}}}}}
+                              
+}
